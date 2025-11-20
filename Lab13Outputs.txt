@@ -1,0 +1,23 @@
+1. Is there a fault in the program? If so, locate it and explain.
+
+- The fault in the program is the loop begins at i=1. This means that the first value in the attendance array will be ignored and just the last 9 values will be considered.
+
+
+2. Define a test case that does not execute the fault. Start from this question, if it is possible, you should give the test case (the attendance record with 10 values), the expected output and the actual output. If impossible, explains the reason. Besides, you should implement the complete program, including the functions under test, and verify your inputs along with their corresponding outputs.
+
+- It would be impossible to not execute the fault as it is part of the for loop within the fail_lecture function. As long as you use the function the error will be executed. 
+
+
+3. Define a test case that executes the fault but does not result in an errorstate.
+
+- a test case where the fault is executed but does not result in an error would be [1,1,1,1,1,1,1,1,1,1]. Since there is a 1 at the 0<sup>th</sup> index, the fault is present but does not change the output meaning there is no error state. Expected output = 0, actual output = 0.
+
+
+4. Define a test case that results in an error state but not a failure.
+
+- [0,0,0,0,1,1,1,1,1,1] would result in a correct output, but it did execute the fault. Fail_lecture would only count 3 absences, which still results in a fail, but it neglects to consider the 4<sup>th</sup> absence that occurred at the 0<sup>th</sup> index. Expected output = 1, actual output = 1.
+
+
+5. Define a test case that results in failure.
+
+- [0,0,0,1,1,1,1,1,1,1] results in a failure as there is 3 absences, so it should result in a failure, however since the first index is not counted, the number of absences would only be 2 and the class would not be failed. Expected output = 1, actual output = 0.
